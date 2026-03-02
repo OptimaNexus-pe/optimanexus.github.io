@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            /* 8pt Grid System & Design Tokens */
+            --deep-black: #0D0D0D;
+            --oxide-orange: #D9541E;
+            --vibrant-yellow: #F2B705;
+            --soft-gray: #1A1A1A;
+            --text-main: #E0E0E0;
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--deep-black);
+            color: var(--text-main);
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Header */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            background: rgba(13, 13, 13, 0.8);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(217, 84, 30, 0.2);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .logo { font-weight: 800; color: var(--oxide-orange); letter-spacing: -1px; font-size: 1.5rem; }
+
+        /* Hero Section with Grain Texture */
+        .hero {
+            height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center; padding: 2rem;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%);
+        }
+
+        h1 { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1; margin-bottom: 1rem; }
+        span.highlight { color: var(--oxide-orange); }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* CTA Form */
+        .cta-box {
+            background: var(--soft-gray);
+            padding: 2rem; border-radius: 12px;
+            border: 1px solid var(--oxide-orange);
+            margin-top: 2rem; width: 100%; max-width: 500px;
+        }
+
+        input {
+            width: 100%; padding: 1rem;
+            background: #000; border: 1px solid #333;
+            color: white; border-radius: 6px; margin-bottom: 1rem;
+        }
+
+        button {
+            width: 100%; padding: 1rem;
+            background: var(--oxide-orange); border: none;
+            color: white; font-weight: bold; cursor: pointer;
+            transition: var(--transition); border-radius: 6px;
+        }
+
+        button:hover { background: var(--vibrant-yellow); color: black; transform: scale(1.02); }
+
+        /* Features Grid */
+        .features {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem; padding: 5rem 2rem;
+        }
+
+        .card {
+            padding: 2rem; background: #141414; border-radius: 8px;
+            border-left: 4px solid var(--oxide-orange);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">OPTIMA_NEXUS</div>
+    </nav>
+
+    <section class="hero">
+        <h1 class="reveal">Soberanía <span class="highlight">Tecnológica</span></h1>
+        <p class="reveal" style="max-width: 600px;">Optimizamos tus procesos B2B con la potencia del Open Source. Soporte de élite, escalabilidad sin licencias.</p>
+        
+        <div class="cta-box reveal">
+            <form action="https://formspree.io/f/tu-id" method="POST">
+                <input type="email" name="email" placeholder="Tu correo corporativo" required>
+                <button type="submit">SOLICITAR AUDITORÍA GRATUITA</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="card reveal">
+            <h3>Soporte 24/7</h3>
+            <p>Mantenimiento proactivo para que tu operación nunca se detenga.</p>
+        </div>
+        <div class="card reveal">
+            <h3>Open Source Core</h3>
+            <p>Automatización de procesos sin depender de costosas licencias anuales.</p>
+        </div>
+        <div class="card reveal">
+            <h3>Optimización Real</h3>
+            <p>Reducción de latencia en flujos de trabajo hasta en un 40%.</p>
+        </div>
+    </section>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            /* 8pt Grid System & Design Tokens */
+            --deep-black: #0D0D0D;
+            --oxide-orange: #D9541E;
+            --vibrant-yellow: #F2B705;
+            --soft-gray: #1A1A1A;
+            --text-main: #E0E0E0;
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--deep-black);
+            color: var(--text-main);
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Header */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            background: rgba(13, 13, 13, 0.8);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(217, 84, 30, 0.2);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .logo { font-weight: 800; color: var(--oxide-orange); letter-spacing: -1px; font-size: 1.5rem; }
+
+        /* Hero Section with Grain Texture */
+        .hero {
+            height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center; padding: 2rem;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%);
+        }
+
+        h1 { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1; margin-bottom: 1rem; }
+        span.highlight { color: var(--oxide-orange); }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* CTA Form */
+        .cta-box {
+            background: var(--soft-gray);
+            padding: 2rem; border-radius: 12px;
+            border: 1px solid var(--oxide-orange);
+            margin-top: 2rem; width: 100%; max-width: 500px;
+        }
+
+        input {
+            width: 100%; padding: 1rem;
+            background: #000; border: 1px solid #333;
+            color: white; border-radius: 6px; margin-bottom: 1rem;
+        }
+
+        button {
+            width: 100%; padding: 1rem;
+            background: var(--oxide-orange); border: none;
+            color: white; font-weight: bold; cursor: pointer;
+            transition: var(--transition); border-radius: 6px;
+        }
+
+        button:hover { background: var(--vibrant-yellow); color: black; transform: scale(1.02); }
+
+        /* Features Grid */
+        .features {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem; padding: 5rem 2rem;
+        }
+
+        .card {
+            padding: 2rem; background: #141414; border-radius: 8px;
+            border-left: 4px solid var(--oxide-orange);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">OPTIMA_NEXUS</div>
+    </nav>
+
+    <section class="hero">
+        <h1 class="reveal">Soberanía <span class="highlight">Tecnológica</span></h1>
+        <p class="reveal" style="max-width: 600px;">Optimizamos tus procesos B2B con la potencia del Open Source. Soporte de élite, escalabilidad sin licencias.</p>
+        
+        <div class="cta-box reveal">
+            <form action="https://formspree.io/f/tu-id" method="POST">
+                <input type="email" name="email" placeholder="Tu correo corporativo" required>
+                <button type="submit">SOLICITAR AUDITORÍA GRATUITA</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="card reveal">
+            <h3>Soporte 24/7</h3>
+            <p>Mantenimiento proactivo para que tu operación nunca se detenga.</p>
+        </div>
+        <div class="card reveal">
+            <h3>Open Source Core</h3>
+            <p>Automatización de procesos sin depender de costosas licencias anuales.</p>
+        </div>
+        <div class="card reveal">
+            <h3>Optimización Real</h3>
+            <p>Reducción de latencia en flujos de trabajo hasta en un 40%.</p>
+        </div>
+    </section>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
